@@ -1,0 +1,957 @@
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+}
+
+.appointment-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f2fff1 0%, #e6f7ee 100%);
+  padding: 32px 24px 32px 24px;
+  border-radius: 18px;
+  box-shadow: 0 4px 22px 0 rgba(16,49,21,.075), 0 1.5px 6px 0 rgba(44,124,72,.06);
+  transition: box-shadow 0.33s;
+}
+.appointment-container:hover {
+  box-shadow: 0 8px 44px 0 rgba(16,49,21,.12), 0 2px 8px 0 rgba(44,124,72,.14);
+}
+/* Header */
+/* Appointment Header - Green Gradient Theme */
+.appointment-header {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #154200 0%, #19872c 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: 32px;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 40px rgba(21, 66, 0, 0.2);
+  animation: slideDown 0.7s cubic-bezier(0.6, 0.02, 0.62, 0.99);
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-icon {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.header-left svg {
+  width: 32px;
+  height: 32px;
+  color: #66bb6a;
+}
+
+.header-left h1 {
+  font-size: 2rem;
+  color: white;
+  margin: 0;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-left p {
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+  margin: 4px 0 0 0;
+  color: #e8f5e8;
+}
+
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #cafdcc 60%, #aceeae 100%);
+  border-radius: 20px;
+  padding: 20px 28px;
+  min-width: 110px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(16, 49, 21, 0.15);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(16, 49, 21, 0.2);
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #22a649;
+  letter-spacing: 0.06em;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #19753a;
+  font-weight: 600;
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Table Controls */
+.table-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 18px 18px 10px 18px;
+  border-bottom: 1.5px solid #e5efe6;
+  flex-wrap: wrap;
+  background: none;
+}
+
+.table-controls h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #17612c;
+  letter-spacing: .025em;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
+.table-icon {
+  margin-right: 10px;
+  font-size: 1.4rem;
+}
+
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/* Controls Right Container */
+.controls-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-end; /* Align all items to the right */
+  width: 100%;
+}
+
+/* Search Box Styles */
+.appointment-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 12rem; /* Reduced width for search */
+}
+
+.appointment-search-box input {
+  padding: 8px 15px 8px 32px; /* Adjusted padding */
+  border: 1.5px solid #c3e5be;
+  border-radius: 7px;
+  font-size: 1rem;
+  width: 100%;
+  background: #fcfffc;
+  transition: all 0.25s;
+  box-shadow: 0 0.5px 2px rgba(38, 128, 62, 0.07);
+}
+
+.appointment-search-icon {
+  position: absolute;
+  right: 10px; /* Position from right edge of input */
+  color: #19753a;
+  font-size: 1.18rem;
+  pointer-events: none;
+}
+
+/* Filter Dropdown Styles */
+.status-filter, 
+.payment-filter {
+  width: 10rem;
+  padding: 8px 14px; /* Consistent padding with search */
+  border-radius: 7px;
+  border: 1.5px solid #c3e5be;
+  font-size: 1rem;
+  background-color: #fcfffc;
+  cursor: pointer;
+  transition: border .25s;
+  appearance: none; /* Remove default dropdown arrow */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2319753a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .controls-right {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .appointment-search-box,
+  .status-filter,
+  .payment-filter {
+    width: 100%;
+  }
+}
+/* Table Styles */
+.table-wrapper {
+  overflow-x: auto;
+  padding: 0 14px;
+  animation: fadeIn .8s cubic-bezier(.4,0,.2,1);
+}
+@keyframes fadeIn {
+  from { opacity: 0;}
+  to {opacity: 1;}
+}
+.appointment-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 920px;
+  background:transparent;
+}
+.appointment-table th {
+  background: #e9f9ee;
+  padding: 16px;
+  text-align: left;
+  font-weight: 700;
+  color: #206d2b;
+  font-size: 0.93rem;
+  letter-spacing: 0.5px;
+  border-bottom: 2.5px solid #bfe6c7;
+  transition: background 0.3s;
+}
+.appointment-table th.crop-col, 
+.appointment-table td.crop-info {
+  text-align: center !important;
+}
+
+.appointment-table td {
+  padding: 16px;
+  border-bottom: 1.5px solid #e2eed8;
+  vertical-align: middle;
+  font-size: 1rem;
+  background: #fff;
+  transition: background 0.3s;
+}
+.appointment-table tr {
+  transition: background 0.22s;
+}
+.appointment-table tr:hover td {
+  background: #f2fff9;
+}
+
+
+/* Farmer Info */
+.farmer-info {
+  /* display: flex; */
+  align-items: flex-start;
+}
+.farmer-details {
+  display: block;
+}
+.farmer-details h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.11rem;
+  color: #237425;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: color 0.21s;
+}
+.farmer-details h4:hover {
+  color: #188a33;
+  text-shadow: 0 1px 6px #abe6b1a1;
+}
+.farmer-location {
+  font-size: 0.97rem;
+  color: #547a58;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.farm-info {
+  font-size: 0.97rem;
+  color: #45624b;
+  font-weight: 500;
+}
+.farm-info div {
+  margin-bottom: 3px;
+}
+.farm-info strong {
+  color: #236a25;
+  font-weight: 700;
+}
+
+.crop-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: linear-gradient(90deg,#e6ffd7 75%, #ffffff 98%);
+  color: #27af19;
+  border-radius: 22px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 2px 7px #d2fad7a8;
+  letter-spacing: 0.035em;
+  transition: transform 0.18s, box-shadow 0.17s, background 0.14s;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  animation: scaleIn .33s cubic-bezier(.4,3,0.45,1);
+}
+.crop-badge:hover {
+  background: #cdffd7;
+  transform: scale(1.09) rotate(-2deg);
+  box-shadow: 0 6px 28px #acdba69e;
+}
+@keyframes scaleIn {
+  from {transform: scale(0.9);}
+  to {transform: scale(1);}
+}
+
+/* Contact Info Column */
+.contact-info .contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.96rem;
+  color: #154200;
+  line-height: 1.2;
+}
+
+.contact-info .contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.contact-icon {
+  margin-right: 8px;
+  color: #319e37;
+  font-size: 1.18rem;
+  transition: color 0.19s;
+}
+
+.contact-item a {
+  color: #19753a;
+  text-decoration: none;
+  transition: color 0.16s, border-bottom-color 0.16s;
+  border-bottom: 1.5px dotted #4bb7522c;
+}
+.contact-item a:hover {
+  color: #076c28;
+  border-bottom: 1.5px solid #319e37;
+}
+
+/* Status Badge */
+.status-badge {
+  display: inline-block;
+  padding: 7px 16px;
+  border-radius: 24px;
+  font-size: 0.93rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  position: relative;
+  box-shadow: 0 1.2px 8px rgba(40, 167, 69, 0.05);
+  transition: background 0.2s, color 0.25s, box-shadow 0.23s;
+  border: 1.5px solid #d7fadc;
+}
+.status-badge.pending {
+  background: repeating-linear-gradient(-45deg,#fff3e0,#fff3e0 7px,#fff8f0 9px,#fff8f0 20px);
+  color: #fd7e14;
+  border-color: #ffe6aa;
+}
+.status-badge.approved {
+  background: repeating-linear-gradient(-45deg,#e6f7ee,#e6f7ee 7px,#f3fcf8 15px,#f3fcf8 20px);
+  color: #28a745;
+  border-color: #7beab3;
+}
+.status-badge.cancelled {
+  background: repeating-linear-gradient(-45deg,#fce8e8,#fce8e8 7px,#fff8f8 15px,#fff8f8 20px);
+  color: #dc3545;
+  border-color: #f4b8bd;
+}
+.status-pulse {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #fd7e14;
+  border-radius: 50%;
+  top: -5px;
+  right: -5px;
+  animation: pulse 1.3s infinite linear;
+  border: 2px solid #ffe1ae;
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1;}
+  70% { transform: scale(1.5); opacity: 0.6;}
+  100%{ transform: scale(1); opacity: 1;}
+}
+
+/* Payment Badge */
+.payment-badge {
+  padding: 7px 15px;
+  border-radius: 22px;
+  font-size: 0.93rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  border: 1.5px solid #cbfad7;
+  transition: background 0.2s, color 0.15s;
+}
+.payment-badge.paid {
+  background: linear-gradient(105deg, #e6f7ee 72%, #f7fdf7 100%);
+  color: #28a745;
+  border-color: #7beab3;
+}
+.payment-badge.pending {
+  background: #fff3e0;
+  color: #fd7e14;
+  border-color: #ffe6aa;
+}
+.payment-badge.refunded {
+  background: #f8f9fa;
+  color: #6c757d;
+  border-color: #d7dbdc;
+}
+
+/* Action Buttons */
+.action-buttons {
+  white-space: nowrap;
+}
+.actions-container {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.btn-action {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.23s;
+  color: white;
+  font-size: 1.1rem;
+  outline: none;
+  box-shadow: 0 1.5px 8px #badbca23;
+  background: linear-gradient(120deg,#21964c 40%,#25dc82cc 95%);
+  opacity: 0.97;
+}
+.btn-action:hover {
+  transform: scale(1.11) translateY(-2.5px);
+  box-shadow: 0 3px 16px rgba(76, 201, 98, 0.26);
+  opacity: 1;
+}
+.btn-action.approve {
+  background: linear-gradient(120deg,#28a745 60%, #06c175 100%);
+}
+.btn-action.approve:hover {
+  background: #218838;
+}
+.btn-action.cancel {
+  background: linear-gradient(120deg,#dc3545 60%, #ff4b6c 100%);
+}
+.btn-action.cancel:hover {
+  background: #c82333;
+}
+.btn-action.whatsapp {
+  background: linear-gradient(120deg,#25D366 60%, #12c291 100%);
+  color: #fff;
+}
+.btn-action.whatsapp:hover {
+  background: #128C7E;
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+}
+.no-results-content {
+  padding: 44px 18px;
+  text-align: center;
+  animation: fadeIn 0.7s;
+}
+.no-results-content img {
+  width: 88px;
+  opacity: 0.67;
+  margin-bottom: 15px;
+  animation: bounceFade 2.3s infinite;
+}
+@keyframes bounceFade {
+  0%,100% { transform: translateY(0px);}
+  30% { transform: translateY(-10px);}
+  60% { transform: translateY(1px);}
+}
+.no-results-content p {
+  color: #668269;
+  font-size: 1.06rem;
+  margin: 0 auto;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* Table Footer */
+.table-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 16px;
+  border-top: 1.5px solid #e3f1de;
+  background: transparent;
+  flex-wrap: wrap;
+  gap: 15px;
+  animation: fadeIn 0.55s 0.15s backwards;
+}
+
+.footer-info {
+  font-size: 0.93rem;
+  color: #43955f;
+  font-weight: 600;
+  letter-spacing: 0.015em;
+}
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.page-btn {
+  padding: 7px 14px;
+  border: 1.6px solid #e3eedf;
+  background: #fff;
+  color: #329b3a;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.96rem;
+  font-weight: 600;
+  box-shadow: 0 0.5px 4px #dcffd827;
+  transition: background .23s, color 0.18s, box-shadow .16s, border 0.17s;
+  display: flex;
+  align-items: center;
+}
+.page-btn:not(.disabled):hover {
+  background: #e6ffd7;
+  color: #19753a;
+  border-color: #a6e7ae;
+}
+.page-btn.active {
+  background: linear-gradient(123deg,#107e0eac 40%,#79e495 100%);
+  color: #fff;
+  border-color: #bcf2b0;
+  box-shadow: 0 2px 8px #3cd25748;
+}
+.page-btn.disabled {
+  background: #f1f4ef;
+  opacity: 0.6 !important;
+  color: #cccccc;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .appointment-table th:nth-child(2),
+  .appointment-table td:nth-child(2) {
+    display: none;
+  }
+  .search-box input { width: 180px; }
+}
+@media (max-width: 992px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 14px;
+    gap: 15px;
+  }
+  .header-stats { margin-top: 11px;}
+  .table-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 16px 10px 7px 10px;
+  }
+  .controls-right {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .search-box { width: 100%;}
+  .search-box input { width: 100%;}
+  .table-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 14px;
+    gap: 8px;
+  }
+  .pagination-controls {
+    margin-top: 5px;
+  }
+}
+@media (max-width: 768px) {
+  .appointment-container {
+    margin: 6px;
+    padding: 8px;
+  }
+  .section-title {
+    font-size: 1.3rem;
+  }
+  .farmer-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .appointment-table th,
+  .appointment-table td {
+    padding: 8px 4px;
+    font-size: 0.87rem;
+  }
+  .actions-container {
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+  .btn-action {
+    width: 28px;
+    height: 28px;
+    font-size: 0.95rem;
+  }
+}
+
+.payment-status-btn {
+  margin-bottom: 0.5rem;
+  padding: 5px 12px;
+  font-weight: 700;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+}
+.payment-status-btn.pending {
+  background-color: #e67e22; /* orange */
+}
+.payment-status-btn.paid {
+  background-color: #27ae60; /* green */
+}
+.booking-date {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+  font-size: 0.875rem;
+  color: #555;
+}
+.calendar-icon {
+  margin-right: 6px;
+}
+
+.date-filter {
+  border: 1.5px solid #10b981;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 1rem;
+  margin-left: 8px;
+  color: #166534;
+  cursor: pointer;
+}
+
+
+/* --- RESPONSIVE ENHANCEMENTS --- */
+
+/* Large Tablets (up to 1200px) */
+@media (max-width: 1200px) {
+  /* Hide Farm Info column for better fit */
+  .appointment-table th.farm-col,
+  .appointment-table td.farm-info {
+    display: none;
+  }
+
+  /* Slightly reduce search box and filters */
+  .appointment-search-box {
+    width: 180px;
+  }
+
+  /* Adjust font sizes */
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* Medium Tablets (up to 992px ~ iPad) */
+@media (max-width: 992px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 14px;
+    gap: 15px;
+  }
+
+  .header-stats {
+    margin-top: 11px;
+  }
+
+  .table-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 16px 10px 7px 10px;
+  }
+  
+  .controls-right {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .appointment-search-box,
+  .status-filter,
+  .payment-filter {
+    width: 100%;
+    max-width: none;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+
+  .appointment-table th,
+  .appointment-table td {
+    padding: 12px 10px;
+  }
+}
+
+/* Small Tablets to Mobile (up to 768px) */
+@media (max-width: 768px) {
+  .appointment-container {
+    margin: 6px;
+    padding: 8px;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .appointment-header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 16px 16px 20px 16px;
+  }
+
+  .loading-cell, .no-results-content {
+    font-size: 1rem;
+  }
+
+  /* Stack controls vertically, full width */
+  .table-controls {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 10px 5px 10px;
+  }
+
+  .controls-right {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .appointment-search-box,
+  .status-filter,
+  .payment-filter {
+    width: 100%;
+  }
+
+  .appointment-table {
+    min-width: 600px; /* Force horizontal scroll for narrow screens */
+    font-size: 0.88rem;
+  }
+
+  /* Make table wrapper overflow scroll horizontally */
+  .table-wrapper {
+    overflow-x: auto;
+  }
+
+  /* Slightly reduce padding */
+  .appointment-table th,
+  .appointment-table td {
+    padding: 10px 6px;
+  }
+
+  /* Farmer Info column stack inside cell */
+  .farmer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Adjust farmer details */
+  .farmer-details h4 {
+    font-size: 1rem;
+  }
+
+  /* Contact info items wrap*/
+  .contact-info .contact-item {
+    font-size: 0.85rem;
+  }
+
+  /* Shrink icons */
+  .contact-icon,
+  .btn-action {
+    width: 28px;
+    height: 28px;
+    font-size: 0.95rem;
+  }
+
+  /* Actions container stack vertically */
+  .actions-container {
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+  }
+}
+
+/* Extra Small Phones (up to 480px) */
+@media (max-width: 480px) {
+  /* Hide Consultation Type column for space */
+  .appointment-table th.crop-col,
+  .appointment-table td.crop-info {
+    display: none;
+  }
+
+  /* Further reduce font sizes */
+  .section-title {
+    font-size: 1.15rem;
+  }
+
+  .appointment-table {
+    font-size: 0.85rem;
+    min-width: 480px;
+  }
+
+  /* Reduce header stats font */
+  .stat-number {
+    font-size: 1.3rem;
+  }
+
+  /* More padding reduction */
+  .appointment-table th,
+  .appointment-table td {
+    padding: 8px 4px;
+  }
+
+  /* Adjust controls */
+  .appointment-search-box,
+  .status-filter,
+  .payment-filter {
+    font-size: 0.9rem;
+  }
+  
+  /* Table footer smaller text */
+  .footer-info {
+    font-size: 0.82rem;
+  }
+}
+
+/* Payment badge pointer, hover and keyboard accessibility */
+.payment-badge {
+  cursor: pointer;
+}
+.payment-badge:hover {
+  background-color: #d3f1d6; /* subtle highlight on hover */
+  color: #1a6f1a;
+}
+
+/* Pagination buttons spacing */
+.pagination-controls {
+  flex-wrap: wrap;
+}
+
+.page-btn {
+  min-width: 40px;
+  justify-content: center;
+}
+
+/* Accessibility improvements for action buttons */
+.btn-action {
+  transition: background-color 0.3s;
+}
+.btn-action:focus {
+  outline: 2px solid #19753a;
+  outline-offset: 2px;
+}
+
+/* Notification close button larger tappable area */
+.notification-close {
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0 0.4em;
+}
+
+/* Fix search icon vertical centering */
+.appointment-search-icon {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Date filter style tweaks for small devices */
+.date-filter {
+  max-width: 140px;
+  font-size: 0.9rem;
+}
+/* Adjust select arrow for smaller devices */
+.status-filter, .payment-filter {
+  font-size: 0.9rem;
+}
+
+/* Table responsiveness with horizontal scroll */
+@media (max-width: 400px) {
+  .appointment-table {
+    min-width: 380px;
+  }
+}
+
+/* Optional: scroll bar for wide table on small devices */
+.table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+.table-wrapper::-webkit-scrollbar-track {
+  background: #ebf5ec;
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+  background-color: #85cb7c;
+  border-radius: 4px;
+  border: 2px solid #ebf5ec;
+}
