@@ -184,7 +184,7 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-const apiBase = "http://localhost:5000/api";
+const apiBase = "https://krushi-backend-7l03.onrender.com/api";
 
 export default function AdminDashboard() {
   // === SEPARATE STATES FOR DIFFERENT SECTIONS ===

@@ -5,7 +5,7 @@ import { FiPlus, FiEdit, FiTrash2, FiImage, FiGlobe, FiSave, FiX, FiUpload, FiTo
 import axios from 'axios'
 import "./HeroSection.css"
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://krushi-backend-7l03.onrender.com/api';
 
 const HeroSection = () => {
   const [selectedPage, setSelectedPage] = useState("About us")
@@ -105,7 +105,8 @@ const HeroSection = () => {
         gradientColors: slide.gradientColors || ["#ffffff", "#f0f0f0"],
         gradientDirection: slide.gradientDirection || "90deg"
       })
-      setImagePreview(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}${slide.image}`)
+      // setImagePreview(`${process.env.REACT_APP_API_URL || 'http://localhost:5000'}${slide.image}`)
+      setImagePreview(`${process.env.REACT_APP_API_URL || 'https://krushi-backend-7l03.onrender.com'}${slide.image}`)
     } else {
       setHeroForm({
         title: "",
@@ -308,7 +309,8 @@ const HeroSection = () => {
   const getCurrentHeroSlides = () => banners[selectedPage] || []
 
   const getServerImageUrl = (imagePath) => {
-    return `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}${imagePath}`
+    // return `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}${imagePath}`
+    return `${process.env.REACT_APP_API_URL || 'https://krushi-backend-7l03.onrender.com'}${imagePath}`
   }
 
   const getTotalSlides = (page) => {

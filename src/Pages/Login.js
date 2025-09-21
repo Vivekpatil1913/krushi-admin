@@ -57,7 +57,7 @@ const Login = ({ onLogin }) => {
         if (!validateEmail(formData.email)) throw new Error('Invalid email');
         if (!validatePassword(formData.password)) throw new Error('Password too short');
 
-        const res = await axios.post('http://localhost:5000/api/admin/login', {
+        const res = await axios.post('https://krushi-backend-7l03.onrender.com/api/admin/login', {
           email: formData.email,
           password: formData.password
         });
@@ -82,7 +82,7 @@ const Login = ({ onLogin }) => {
         if (!validatePassword(formData.password)) throw new Error('Password too short');
         if (formData.password !== formData.confirmPassword) throw new Error('Passwords do not match');
 
-        const res = await axios.post('http://localhost:5000/api/admin/register', {
+        const res = await axios.post('https://krushi-backend-7l03.onrender.com/api/admin/register', {
           username: formData.username,
           email: formData.email,
           password: formData.password

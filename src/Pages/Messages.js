@@ -13,8 +13,8 @@ import {
 } from "react-icons/fi";
 import "./Messages.css";
 
-const API_URL = "http://localhost:5000/api/messages"; // Update if needed
-const TESTIMONIALS_API = "http://localhost:5000/api/testimonials";
+const API_URL = "https://krushi-backend-7l03.onrender.com/api/messages"; // Update if needed
+const TESTIMONIALS_API = "https://krushi-backend-7l03.onrender.com/api/testimonials";
 
 function getCategoryIcon(category) {
   if (category === "write us" || category === "write to us") return <FiMail />;

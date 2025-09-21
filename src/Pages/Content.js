@@ -7,7 +7,7 @@ import TimelineSection from "../Components/TimelineSection"
 import axios from "axios"
 import "./Content.css"
 
-const API_TIMELINE_URL = "http://localhost:5000/api/timeline" // Adjust as needed
+const API_TIMELINE_URL = "https://krushi-backend-7l03.onrender.com/api/timeline" // Adjust as needed
 
 const Content = () => {
   const [activeTab, setActiveTab] = useState("hero")

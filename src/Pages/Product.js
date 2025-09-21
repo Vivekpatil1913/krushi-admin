@@ -24,8 +24,8 @@ const PRODUCT_SECTIONS = [
   { id: "top-rated", name: "Top Rated", icon: AiOutlineStar, color: "#8b5cf6" },
 ];
 
-const backendBaseURL = "http://localhost:5000/api";
-const backendRootURL = "http://localhost:5000";
+const backendBaseURL = "https://krushi-backend-7l03.onrender.com/api";
+const backendRootURL = "https://krushi-backend-7l03.onrender.com";
 
 const initialProductState = {
   name: "",

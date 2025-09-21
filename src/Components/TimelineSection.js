@@ -3,8 +3,8 @@ import axios from "axios"
 import { FiPlus, FiEdit, FiTrash2, FiCalendar, FiSave, FiX } from "react-icons/fi"
 import "./TimelineSection.css"
 
-const API_URL = "http://localhost:5000/api/timeline";
-const UPLOAD_URL = "http://localhost:5000/api/upload";
+const API_URL = "https://krushi-backend-7l03.onrender.com/api/timeline";
+const UPLOAD_URL = "https://krushi-backend-7l03.onrender.com/api/upload";
 
 const initialFormState = {
   year: "",
@@ -109,7 +109,7 @@ const TimelineSection = () => {
               <div key={milestone.id} className="item-card timeline-card">
                 <div className="timeline-year">{milestone.year}</div>
                 <div className="item-image">
-                  <img src={`http://localhost:5000${milestone.image}`} alt={milestone.title} />
+                  <img src={`https://krushi-backend-7l03.onrender.com${milestone.image}`} alt={milestone.title} />
                   <div className="image-actions">
                     <button
                       type="button"
@@ -217,7 +217,7 @@ const TimelineSection = () => {
                   />
                   {timelineForm.image && (
                     <div style={{ marginTop: "8px" }}>
-                      <img src={`http://localhost:5000${timelineForm.image}`} alt="Preview" style={{ maxHeight: 80 }} />
+                      <img src={`https://krushi-backend-7l03.onrender.com${timelineForm.image}`} alt="Preview" style={{ maxHeight: 80 }} />
                     </div>
                   )}
                 </div>

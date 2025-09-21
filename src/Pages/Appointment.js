@@ -8,7 +8,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import './Appointment.css';
 
 
-const backendURL = "http://localhost:5000/api/appointments";
+const backendURL = "https://krushi-backend-7l03.onrender.com/api/appointments";
 const appointmentsPerPage = 4;
 
 const Appointment = () => {

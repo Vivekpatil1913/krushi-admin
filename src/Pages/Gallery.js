@@ -7,8 +7,8 @@ import "./Gallery.css";
 // Always returns category _id as string
 const getCategoryId = (item) => item?.categoryId?._id || item?.categoryId || "";
 
-const BASE_URL = "http://localhost:5000/api"; // Change if needed
-const BACKEND_ORIGIN = "http://localhost:5000";
+const BASE_URL = "https://krushi-backend-7l03.onrender.com/api"; // Change if needed
+const BACKEND_ORIGIN = "https://krushi-backend-7l03.onrender.com";
 
 const AdminGallery = () => {
   const [categories, setCategories] = useState([]);

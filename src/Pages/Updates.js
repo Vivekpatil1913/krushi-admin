@@ -6,7 +6,7 @@ import { FaBullhorn} from "react-icons/fa"
 import axios from "axios"
 import "./Updates.css"
 
-const API_UPDATES_URL = "http://localhost:5000/api/updates"
+const API_UPDATES_URL = "https://krushi-backend-7l03.onrender.com/api/updates"
 
 const Updates = () => {
   const [activeTab, setActiveTab] = useState("marquee")
@@ -561,7 +561,7 @@ const Updates = () => {
                     <div key={news._id || news.id} className="admin-layout-news-card">
                       <div className="admin-layout-news-image">
                         <img
-                          src={news.image && news.image.startsWith('http') ? news.image : `http://localhost:5000${news.image || ''}`}
+                          src={news.image && news.image.startsWith('http') ? news.image : `https://krushi-backend-7l03.onrender.com${news.image || ''}`}
                           alt={news.title || "News image"}
                         />
                         <div className="admin-layout-news-category">{news.category || "Uncategorized"}</div>
@@ -1024,7 +1024,7 @@ const Updates = () => {
       })
 
       if (news.image) {
-        const fullImageUrl = news.image.startsWith('http') ? news.image : `http://localhost:5000${news.image}`
+        const fullImageUrl = news.image.startsWith('http') ? news.image : `https://krushi-backend-7l03.onrender.com${news.image}`
       setImagePreview(fullImageUrl)
       }
 

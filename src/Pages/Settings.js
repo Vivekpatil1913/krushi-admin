@@ -3,6 +3,11 @@ import axios from "axios";
 import "./Settings.css";
 
 export default function Settings() {
+
+    const axiosInstance = axios.create({
+      baseURL: "https://krushi-backend-7l03.onrender.com", // replace with your backend URL
+    });
+
   const [adminData, setAdminData] = useState({
     username: "",
     email: "",
@@ -28,7 +33,7 @@ export default function Settings() {
 
       try {
         setFetchingProfile(true);
-        const response = await axios.get("/api/admin/profile", {
+        const response = await axiosInstance.get("/api/admin/profile", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -77,7 +82,7 @@ export default function Settings() {
 
       try {
         setLoading(true);
-        const response = await axios.patch("/api/admin/profile", 
+        const response = await axiosInstance.patch("/api/admin/profile", 
           {
             name: adminData.username, 
             email: adminData.email,
@@ -111,7 +116,7 @@ export default function Settings() {
 
       try {
         setLoading(true);
-        const response = await axios.post("/api/admin/change-password",
+        const response = await axiosInstance.post("/api/admin/change-password",
           {
             currentPassword: adminData.currentPassword,
             newPassword: adminData.newPassword,
